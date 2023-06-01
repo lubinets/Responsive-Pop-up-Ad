@@ -15,19 +15,34 @@
   top: 0;
   height: 100vh;
   width: 100%;
+  opacity: 0;
+  transition: all 700ms ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
 }
 
 .popup-container {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, calc(-50% + 50px));
   font-family: "Raleway", sans-serif;
   color: #fff;
   padding: 12px 0;
   box-shadow: 0 6px 55px -10px rgba(0, 0, 0, 0.7);
   background-image: url("images/bg.png");
   background-size: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 700ms ease;
+}
+
+.popup-overlay.active .popup-container {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .popup-container,
